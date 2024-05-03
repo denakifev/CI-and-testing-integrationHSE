@@ -1,0 +1,10 @@
+test1 ---> amount = 6 min = -10, max = 10, sum = -10, product = -72000
+test2 ---> amount = 7 min = -10, max = 4, sum = -21, product = 0
+test3 ---> amount = 8 min = -10, max = 5, sum = -26, product = 472500
+test4 ---> amount = 400001 min = -10, max = 10, sum = -884, product = 0
+test5 ---> amount = 500001 min = -10, max = 10, sum = -310, product = 0
+test6 ---> amount = 600001 min = -10, max = 10, sum = 7120, product = 0
+test7 ---> amount = 700001 min = -10, max = 10, sum = -5339, product = 0
+test8 ---> amount = 800001 min = -10, max = 10, sum = 4880, product = 0
+test9 ---> amount = 900001 min = -10, max = 10, sum = -3653, product = 0
+test10 ---> amount = 1000001 min = -10, max = 10, sum = -8904, product = 0
