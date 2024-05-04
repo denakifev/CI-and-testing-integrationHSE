@@ -19,5 +19,7 @@ jobs:
         with:
             java-version: '11'
             distribution: 'adopt'
-      - name: main_test
-        run: java -classpath src:test/lib/* org.junit.runner.JUnitCore  src/operationsTest.java
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots package
+      - name: Run tests
+        run: mvn test
