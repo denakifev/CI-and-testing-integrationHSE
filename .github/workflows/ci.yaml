@@ -20,4 +20,4 @@ jobs:
             java-version: '11'
             distribution: 'adopt'
       - name: main_test
-        run: java -classpath src:test/lib/* org.junit.runner.JUnitCore src/operationsTest.java
+        run: java -classpath src:test/lib/* src/operationsTest.java
