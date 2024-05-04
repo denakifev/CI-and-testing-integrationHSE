@@ -15,4 +15,4 @@ jobs:
       - name: open dir
         run: cd $GITHUB_WORKSPACE/
       - name: main_test
-        run: java -classpath src:test/lib/* org.junit.runner.JUnitCore src/operationsTest.java
+        run: java -classpath src:test/lib/* org.junit.runner.JUnitCore  src/operationsTest.java
