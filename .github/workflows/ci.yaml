@@ -30,7 +30,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-              MESSAGE="Проект завершился с ошибкой. Неудачные тесты:"
+              MESSAGE="Проект завершился с ошибкой. Лог тестирования:"
               FAILED_TESTS=$(cat target/surefire-reports/operations.operationsTest.txt)
               curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage -d "chat_id=${CHAT_ID}&text=${MESSAGE} ${FAILED_TESTS}"
       - name: Telegram success message
