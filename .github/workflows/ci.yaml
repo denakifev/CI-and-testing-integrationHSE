@@ -25,12 +25,13 @@ jobs:
       - name: Run Tests
         run: mvn -B test --file pom.xml
       - name: Telegram message
-        if: failure() || success()
+        if: ${{ failure() || success() }}
         env:
+          STATUS: ${{ failure() }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-            if [ ${{ failure() }} = 'true' ]; then 
+            if [ ${STATUS} = 'true' ]; then 
               MESSAGE="Проект завершился с ошибкой. Неудачные тесты:"
               FAILED_TESTS=$(mvn -q test 2>&1 | grep -E '\[(INFO|ERROR)\]' | grep -v 'SUCCESS' | awk -F '] ' '{print $NF}' | tr '\n' ', ')
               curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage -d "chat_id=${CHAT_ID}&text=${MESSAGE} ${FAILED_TESTS}"
