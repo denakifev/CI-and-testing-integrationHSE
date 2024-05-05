@@ -25,7 +25,7 @@ jobs:
       - name: Run Tests
         run: mvn -B test --file pom.xml
       - name: Telegram message
-        if: ${{ failure() || success() }}
+        if: failure() || success()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
