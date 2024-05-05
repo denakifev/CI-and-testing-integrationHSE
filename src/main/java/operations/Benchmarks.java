@@ -1,4 +1,4 @@
-package Benchmarktests;
+package operations;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -15,27 +15,12 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 
 public class Benchmarks {
-  public static int _min(String file){
-    try {
-      int ans = Integer.MAX_VALUE;
-      Scanner in = new Scanner(new File(file));
-      while(in.hasNextInt()){
-        ans = Math.min(ans, in.nextInt());
-      }
-      in.close();
-      return ans;
-    }
-    catch (IOException e){
-      System.out.println("File has not been found");
-      return Integer.MAX_VALUE;
-    }
 
-  }
 
   @Benchmark
   @BenchmarkMode(Mode.AverageTime)
   public void measure_min() {
-      _min("tests/test10.txt");
+    operations._min("samples/test10.txt");
   }
   public static void main(String[] args) throws RunnerException {
     Options options = new OptionsBuilder()
