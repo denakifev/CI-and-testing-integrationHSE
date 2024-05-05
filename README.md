@@ -1,5 +1,5 @@
 # Тз 2 технологии программирования
-![Built Tests](https://github.com/denakifev/CI-and-testing-integrationHSE/actions/workflows/ci.yaml/badge.svg)
+![Built Tests](https://github.com/denakifev/CI-and-testing-integrationHSE/actions/workflows/ci.yaml/badge.svg?event=push)
 ## 1. Чтение из файла и работа функций
 Все функции устроены одинаково: Пусть к файлу передается аргументом для каждой функции (В репозитории есть конкретные обращения (в классе unit- и нагрузочного тестирования).
 Там передаются ссылки на файлы тестов, которые лежат в директории *samples*. Там же лежат результаты всех тестов и информация о входных данных(*samples/res.txt*) и информация о скорости работы для тестов 4 - 10.(*samples/teststimeresult.txt*)
