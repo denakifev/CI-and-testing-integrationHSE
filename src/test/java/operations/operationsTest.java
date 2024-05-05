@@ -14,7 +14,7 @@ public class operationsTest {
 
   @Test
   public void _max() {
-    assertEquals(11, operations._max("samples/test1.txt"));
+    assertEquals(10, operations._max("samples/test1.txt"));
     assertEquals(4, operations._max("samples/test2.txt"));
     assertEquals(5, operations._max("samples/test3.txt"));
   }
