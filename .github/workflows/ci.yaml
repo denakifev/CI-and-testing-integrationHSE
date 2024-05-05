@@ -1,24 +1,26 @@
-name: den.akifev
+
+name: CI testing
+
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-        - name: Checkout
-          uses: actions/checkout@v1
+  build_test:
 
-        - name: Set up JDK 1.11
-          uses: actions/setup-java@v2
-          with:
-              java-version: '11'
-              distribution: 'adopt'
-        - name: Build
-          run: mvn --batch-mode -DskipTests package
-        - name: Test
-          run: mvn --batch-mode -Dmaven.test.failure.ignore=true operationsTest
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+      - name: Run Tests
+        run: mvn -B test --file pom.xml
