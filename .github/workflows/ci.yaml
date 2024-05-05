@@ -31,7 +31,7 @@ jobs:
           CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
               MESSAGE="Проект завершился с ошибкой. Неудачные тесты:"
-              FAILED_TESTS=$(mvn -q test 2>&1 | grep -E '\[(INFO|ERROR)\]' | grep -v 'SUCCESS' | awk -F '] ' '{print $NF}' | tr '\n' ', ')
+              FAILED_TESTS=$(mvn -B -q test 2>&1 --file pom.xml | grep -E '\[(INFO|ERROR)\]' | grep -v 'SUCCESS' | awk -F '] ' '{print $NF}' | tr '\n' ', ')
               curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage -d "chat_id=${CHAT_ID}&text=${MESSAGE} ${FAILED_TESTS}"
       - name: Telegram success message
         if: success()
