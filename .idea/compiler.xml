@@ -8,7 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CITestingProject" />
+        <module name="tpTechEX" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="tpTechEX" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
